@@ -1,0 +1,62 @@
+﻿@model MVC_JobSearch.Models.JobInsert
+@{
+    ViewBag.Title = "Job_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Job Insertion</h2>
+<div>
+    @using (Html.BeginForm("job_Click", "Job", FormMethod.Post))
+    {
+        <div>
+            <label>Job Title:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.jobtitle)
+
+        </div>
+        <div>
+            <label>Job Experience:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.jobexp)
+
+        </div>
+        <div>
+            <label>Skills:</label>
+        </div>
+        <div>
+            @foreach (var item in Model.MyFavoriteSkill)
+            {
+                <label>
+                    <input type="checkbox" value="@item.Value" checked="@item.IsChecked" name="selectedSkill" id="@item.Value" />@Html.Raw(@item.Text)
+                </label>
+            }
+
+        </div>
+        <div>
+            <label>No of Vaccancy:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.vaccancy)
+
+        </div>
+        <div>
+            <label>Date:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.date)<label>Enter date in dd/mm/yyyy format</label>
+
+        </div>
+
+        <div>
+            <input type="submit" value="Insert" />
+            @Html.DisplayFor(m => m.msg)
+        </div>
+
+
+
+    }
+</div>
+
+

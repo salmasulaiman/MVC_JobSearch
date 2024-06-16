@@ -1,0 +1,85 @@
+﻿@model MVC_JobSearch.Models.CompanyInsert
+@{
+    ViewBag.Title = "Insertcompany_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Company Registration</h2>
+<div>
+    @using (Html.BeginForm("Insertcompany_click", "CompanyReg", FormMethod.Post))
+    {
+        <div>
+            <label>Company Name:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.cname)
+            @Html.ValidationMessageFor(m => m.cname)
+        </div>
+        <div>
+            <label>Company Address:</label>
+        </div>
+        <div>
+            @Html.TextAreaFor(m => m.caddress)
+            @Html.ValidationMessageFor(m => m.caddress)
+        </div>
+        <div>
+            <label>Phone:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.cphone)
+            @Html.ValidationMessageFor(m => m.cphone)
+        </div>
+        <div>
+            <label>Email:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.cemail)
+            @Html.ValidationMessageFor(m => m.cemail)
+        </div>
+        <div>
+            <label>Website:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.cwebsite)
+            @Html.ValidationMessageFor(m => m.cwebsite)
+        </div>
+        <div>
+            <label>Location:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.location)
+            @Html.ValidationMessageFor(m => m.location)
+        </div>
+        <div>
+
+            <label>Username:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.cusername)
+            @Html.ValidationMessageFor(m => m.cusername)
+        </div>
+        <div>
+            <label>Password:</label>
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.cpass)
+            @Html.ValidationMessageFor(m => m.cpass)
+        </div>
+        <div>
+            <label>Confirm Password:</label>
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.ccpassword)
+            @Html.ValidationMessageFor(m => m.ccpassword)
+
+        </div>
+        <div>
+            <input type="submit" value="Insert" />
+            @Html.DisplayFor(m => m.companymsg)
+        </div>
+
+
+
+    }
+</div>
+

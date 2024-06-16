@@ -1,0 +1,121 @@
+﻿@model MVC_JobSearch.Models.UserInsert
+@{
+    ViewBag.Title = "Insertuser_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Registration</h2>
+<div>
+    @using (Html.BeginForm("Insertuser_click", "UserReg", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label>Name:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.uname)
+            @Html.ValidationMessageFor(m => m.uname)
+        </div>
+        <div>
+            <label>Age:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.uage)
+            @Html.ValidationMessageFor(m => m.uage)
+        </div>
+        <div>
+            <label>Address:</label>
+        </div>
+        <div>
+            @Html.TextAreaFor(m => m.uaddress)
+            @Html.ValidationMessageFor(m => m.uaddress)
+        </div>
+        <div>
+            <label>Phone:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.uphone)
+            @Html.ValidationMessageFor(m => m.uphone)
+        </div>
+        <div>
+            <label>Email:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.uemail)
+            @Html.ValidationMessageFor(m => m.uemail)
+        </div>
+        <div>
+            <label>Qualification:</label>
+        </div>
+        <div>
+            @foreach (var item in Model.MyFavoriteQual)
+        {
+            <label>
+                <input type="checkbox" value="@item.Value" checked="@item.IsChecked" name="selectedQual" id="@item.Value" />@Html.Raw(@item.Text)
+            </label>
+        }
+          
+        </div>
+        <div>
+            <label>Experience:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.experience)
+            @Html.ValidationMessageFor(m => m.experience)
+        </div>
+        <div>
+            <label>Skills:</label>
+        </div>
+        <div>
+            @foreach (var item in Model.MyFavoriteSkills)
+        {
+            <label>
+                <input type="checkbox" value="@item.Value" checked="@item.IsChecked" name="selectedSkills" id="@item.Value" />@Html.Raw(@item.Text)
+            </label>
+        }
+          
+        </div>
+        <div>
+            <label>Photo:</label>
+        </div>
+        <div>
+            @Html.TextBox("file1", "", new { Type = "file" })
+        </div>
+        <div>
+            <label>Resume</label>
+        </div>
+        <div>
+            @Html.TextBox("file2", "", new { Type = "file" })
+        </div>
+        <div>
+
+            <label>Username:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.username)
+           
+        </div>
+        <div>
+            <label>Password:</label>
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.pass)
+          
+        </div>
+        <div>
+            <label>Confirm Password:</label>
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.cpassword)
+            @Html.ValidationMessageFor(m => m.cpassword)
+
+        </div>
+        <div>
+            <input type="submit" value="Insert" />
+            @Html.DisplayFor(m => m.usermsg)
+        </div>
+
+
+
+    }
+</div>
+

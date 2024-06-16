@@ -1,0 +1,32 @@
+﻿@model MVC_JobSearch.Models.UserCompanyLogin
+@{
+    ViewBag.Title = "login_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+<div>
+    @using (Html.BeginForm("Login_Click", "Login", FormMethod.Get))
+    {
+        <div>
+            <label>User Name</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.username)
+            @Html.ValidationMessageFor(m => m.username)
+        </div>
+        <div>
+            <label>Password</label>
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.pass)
+            @Html.ValidationMessageFor(m => m.pass)
+        </div>
+        <div>
+            <input type="submit" value="Login" />
+            @Html.DisplayFor(m => m.msg)
+        </div>
+    }
+</div>
+

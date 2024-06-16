@@ -1,0 +1,25 @@
+﻿@model MVC_JobSearch.Models.ApplyInsert
+@{
+    ViewBag.Title = "Application_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Application</h2>
+<div>
+    @using (Html.BeginForm("Application_click", "ApplyJob", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label>Resume</label>
+        </div>
+        <div>
+            @Html.TextBox("file", "", new { Type = "file" })
+        </div>
+       
+        <div>
+            <input type="submit" value="Apply" />
+            @Html.DisplayFor(m => m.applymsg)
+        </div>
+    }
+</div>
+
+
